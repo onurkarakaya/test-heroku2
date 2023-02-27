@@ -36,7 +36,7 @@ app.get('/stop', (req, res) => {
     res.send('ok');
 });
 
-Scanner2();
+//Scanner2();
 
 async function Scanner2() {
 
@@ -81,6 +81,12 @@ async function Scanner2() {
         scannerEnable = false;
     }
     
+}
+
+scanner3();
+
+const scanner3 = async () => {
+    await twitterHelper.loginAccount(process.env.accountUsername, process.env.email, process.env.password);
 }
 
 
