@@ -10,8 +10,9 @@ let scannerEnable = false;
 
 
 
-app.listen(port, () => {
+app.listen(port, async () => {
     console.log("Server is running on port: " + port);  
+    scanner3();
 });
 
 app.get('/status', (req, res) => {
@@ -83,7 +84,7 @@ async function Scanner2() {
     
 }
 
-scanner3();
+
 
 const scanner3 = async () => {
     try {
