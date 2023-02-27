@@ -50,16 +50,16 @@ const Scanner2 = async () => {
     
         while (true) {
 
-            console.log('while baslangici');
+            //console.log('while baslangici');
             if (scannerEnable) {
-                console.log('scanner enable if ici');
+                //console.log('scanner enable if ici');
                 const json =  await earthquake();
                 console.log(json);
                 if (oldBuffer.length !== 0) {
 
-                    console.log('old buf len buyuk 0 ici');
+                    //console.log('old buf len buyuk 0 ici');
                     let newValues = json.result.filter(r => !oldBuffer.some(o => o.title.includes(r.title) && o.date.includes(r.date)));
-                    console.log('filter sonrasi');
+                    //console.log('filter sonrasi');
                     if (newValues.length > 0) {
                         console.log('Found: ' + newValues.length);
                 
@@ -75,12 +75,12 @@ const Scanner2 = async () => {
                 }
 
                 oldBuffer = json.result; 
-                console.log('oldbuffer json.result esitlendi');  
+                //console.log('oldbuffer json.result esitlendi');  
             }
 
-            console.log('delay basi');
+            //console.log('delay basi');
             await delay(10000);    
-            console.log('delay sonu');          
+            //console.log('delay sonu');          
         }
 
     } catch (error) {
