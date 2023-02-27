@@ -86,7 +86,12 @@ async function Scanner2() {
 scanner3();
 
 const scanner3 = async () => {
-    await twitterHelper.loginAccount(process.env.accountUsername, process.env.email, process.env.password);
+    try {
+        await twitterHelper.loginAccount(process.env.accountUsername, process.env.email, process.env.password);
+    } catch (error) {
+        console.log(error);
+    }
+    
 }
 
 
