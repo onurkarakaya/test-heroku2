@@ -13,9 +13,13 @@ let _page = null;
 
 async function browserLaunch(){
   //const paths = 'C:\\extensions\\ChroPath';
+  const browserFetcher = puppeteer.createBrowserFetcher(); 
+  let revisionInfo = await browserFetcher.download('1095492');
   _browser = await puppeteer.launch({
+    executablePath: revisionInfo.executablePath,
+    ignoreDefaultArgs: ['--disable-extensions'],
     headless: true,
-    args: ['--no-sandbox']
+    args: ['--no-sandbox', "--disabled-setupid-sandbox"]
   });
 }
 
