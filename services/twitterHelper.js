@@ -18,7 +18,7 @@ async function browserLaunch(){
   _browser = await puppeteer.launch({
     executablePath: revisionInfo.executablePath,
     ignoreDefaultArgs: ['--disable-extensions'],
-    headless: true,
+    headless: false,
     args: ['--no-sandbox', "--disabled-setupid-sandbox"]
   });
 }
@@ -45,7 +45,10 @@ async function loginAccount(username, email, password) {
   await delay(3000);
   console.log('email yazilip entera basildi');
 
-  if (await _page.$x(`//span[contains(text(),'Enter your phone number or username')]`) !== null) {
+  const isExistUsernameVerification = await _page.$x(`//span[contains(text(),'Enter your phone number or username')]`);
+  console.log(isExistUsernameVerification);
+  if (isExistUsernameVerification.length > 0) {
+    console.log('enter username null gelmedi');
     const usernameInput = await _page.waitForXPath(`//input[@name='text']`);
     await usernameInput.type(username, { delay: 150 });
     await delay(2000);
