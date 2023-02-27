@@ -12,7 +12,7 @@ let scannerEnable = false;
 
 app.listen(port, async () => {
     console.log("Server is running on port: " + port);  
-    //scanner3();
+    Scanner2();
 });
 
 app.get('/status', (req, res) => {
@@ -37,9 +37,9 @@ app.get('/stop', (req, res) => {
     res.send('ok');
 });
 
-Scanner2();
+//Scanner2();
 
-async function Scanner2() {
+const Scanner2 = async () => {
 
     try {
 
