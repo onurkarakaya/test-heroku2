@@ -18,7 +18,7 @@ async function browserLaunch(){
   _browser = await puppeteer.launch({
     executablePath: revisionInfo.executablePath,
     ignoreDefaultArgs: ['--disable-extensions'],
-    headless: false,
+    headless: true,
     args: ['--no-sandbox', "--disabled-setupid-sandbox"]
   });
 }
