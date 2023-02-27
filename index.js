@@ -54,7 +54,7 @@ const Scanner2 = async () => {
             if (scannerEnable) {
                 //console.log('scanner enable if ici');
                 const json =  await earthquake();
-                console.log(json);
+                //console.log(json);
                 if (oldBuffer.length !== 0) {
 
                     //console.log('old buf len buyuk 0 ici');
